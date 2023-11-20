@@ -12,6 +12,7 @@ let intervalId = null;
 
 function startColorChange() {
   startBtn.disabled = true;
+  stopBtn.disabled = false;
   intervalId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
@@ -20,6 +21,7 @@ function startColorChange() {
 function stopColorChange() {
   clearInterval(intervalId);
   startBtn.disabled = false;
+  stopBtn.disabled = true;
 }
 
 startBtn.addEventListener('click', startColorChange);
