@@ -31,7 +31,8 @@ const options = {
 };
 flatpickr('#datetime-picker', options);
 
-// Додавання відключення кнопки "Start" при завантаженні сторінки
+let isTimerRunning = false;
+
 document.addEventListener('DOMContentLoaded', () => {
   const startButton = document.querySelector('[data-start]');
   startButton.disabled = true;
@@ -62,6 +63,10 @@ function startCountdown() {
     document.getElementById('datetime-picker').value
   );
   const now = new Date();
+
+  startButton.disabled = true;
+  document.getElementById('datetime-picker').disabled = true;
+  isTimerRunning = true;
 
   if (selectedDate <= now) {
     iziToast.error({
