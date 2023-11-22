@@ -39,4 +39,5 @@ document.querySelector('.form').addEventListener('submit', event => {
       });
     delay += step;
   }
+  event.target.reset();
 });
